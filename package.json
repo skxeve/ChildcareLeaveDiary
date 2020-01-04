@@ -1,0 +1,24 @@
+{
+  "name": "childcareleavediary",
+  "version": "1.0.0",
+  "description": "妻の出産に合わせて育児休業を取得した時の記録。",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev contents",
+    "build": "vuepress build contents",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skxeve/ChildcareLeaveDiary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skxeve/ChildcareLeaveDiary/issues"
+  },
+  "homepage": "https://github.com/skxeve/ChildcareLeaveDiary#readme",
+  "dependencies": {
+    "vuepress": "^1.2.0"
+  }
+}
