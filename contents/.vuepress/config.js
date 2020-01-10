@@ -10,12 +10,17 @@ var dirs = fs.readdirSync(dirpath).filter((f) => {
 })
 var sidebarArray = ["/"].concat(dirs.map((dir) => {
   let title = dir;
-  let m = dir.match(/^Week-(\d+)$/)
+  let m = dir.match(/^Week-([0-9~]+)$/);
   if (m) {
     if (m[1] == '0') {
       title = '出産前日〜生後0週間';
     } else {
       title = '生後' + m[1] + '週間';
+    }
+  } else {
+    m = dir.match(/^Month-([0-9~]+)$/);
+    if (m) {
+      title = '生後' + m[1] + 'ヶ月';
     }
   }
   return {
@@ -49,6 +54,7 @@ module.exports = {
   meta: [
     { charset: 'utf-8' }
   ],
+  base: '/ChildcareLeaveDiary/',
   dest: 'docs',
   themeConfig: {
     sidebar: sidebarArray
