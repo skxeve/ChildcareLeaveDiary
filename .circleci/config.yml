@@ -10,7 +10,8 @@ jobs:
       - checkout
       - run: git config --global user.email "skxeve@gmail.com"
       - run: git config --global user.name "CircleCI"
-      - run: git checkout master && git merge $CIRCLE_BRANCH --no-edit
+      - run: git branch
+      - run: if [ "$CIRCLE_BRANCH" != "master" ]; then git branch -D master && git checkout master && git merge $CIRCLE_BRANCH --no-edit; fi
       - node/with-cache:
           cache-version: v1
           steps:
