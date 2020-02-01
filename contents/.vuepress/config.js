@@ -7,6 +7,12 @@ var exBottomArray = ['01-01.md'];
 
 var dirs = fs.readdirSync(dirpath).filter((f) => {
   return fs.existsSync(dirpath + "/" + f) && fs.statSync(dirpath + "/" + f).isDirectory() && f != '.vuepress'
+}).sort((a, b)  => {
+  if (a.match(/^Month-([0-9~]+)$/) && b.match(/^Week-([0-9~]+)$/)) return 1;
+  if (b.match(/^Month-([0-9~]+)$/) && a.match(/^Week-([0-9~]+)$/)) return -1;
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
 })
 var sidebarArray = ["/"].concat(dirs.map((dir) => {
   let title = dir;
@@ -37,8 +43,6 @@ var sidebarArray = ["/"].concat(dirs.map((dir) => {
         if (a.toLowerCase() == ex) return 1;
         if (b.toLowerCase() == ex) return -1;
       }
-      if (a.match(/^Month-([0-9~]+)$/) && b.match(/^Week-([0-9~]+)$/)) return 1;
-      if (b.match(/^Month-([0-9~]+)$/) && a.match(/^Week-([0-9~]+)$/)) return -1;
       if (a < b) return -1;
       if (a > b) return 1;
       return 0;
