@@ -53,7 +53,7 @@ var sidebarArray = ["/"].concat(dirs.map((dir) => {
   }
 }))
 
-sidebarArray[sidebarArray.length-1].collapsable = false;
+// sidebarArray[sidebarArray.length-1].collapsable = false;
 
 module.exports = {
   title: 'エンジニア育休記録',
